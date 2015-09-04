@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var connect = require('gulp-connect'); // runs a local dev server
 var open = require('gulp-open'); // opens in browser
 var browserify = require('browserify'); // bundles js
-var reactify = require('reactify'); // transforms react jsx to js
+var babelify = require('babelify'); // compiles jsx and adds support for es6/7 syntax
 var source = require('vinyl-source-stream'); // use contentional text streams with gulp
 var concat = require('gulp-concat'); // concats files..
 var lint = require('gulp-eslint'); // lint js and jsx files
@@ -60,7 +60,7 @@ gulp.task('css', function(){
 gulp.task('js', function(){
   console.log('compile js');
   browserify(config.paths.mainJs)
-    .transform(reactify)
+    .transform(babelify)
     .bundle()
     .on('error', console.error.bind(console))
     .pipe(source('bundle.js'))

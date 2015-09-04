@@ -1,16 +1,14 @@
 var React = require('react');
 
-var App = React.createClass({
-  render: function() {
+class App extends React.Component {
+  render() {
     return (
       <div>
         <h1>Test App</h1>
-        <div>This is my test!</div>
+        <div>es6</div>
       </div>
     );
   }
-});
+}
 
 React.render(<App />, document.getElementById('app'));
-
-module.exports = App;
